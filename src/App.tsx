@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Board } from './Components/Board';
+import { Button } from 'react-bootstrap';
+import { DPad } from './Components/DPad';
 
 function App() {
+  const [pco, setpco] = useState<[number, number]>([0, 0]);
+  const [size, setsize] = useState<[number, number]>([5, 5]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span>{pco}</span>
+      <Board size={size} coords={pco}></Board>
+      <DPad size={size} coords={pco} setpco={setpco}></DPad>
     </div>
   );
 }
