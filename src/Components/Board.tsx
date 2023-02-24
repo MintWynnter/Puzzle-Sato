@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Tile } from './Tile';
 import { Player } from './Player';
+import { Block } from './Block';
+import { square } from '../Interfaces/Square';
 
 export function Board({size, coords, board}: {
     size: [number, number];
     coords: [number, number];
-    board: string[];
+    board: square[];
 }): JSX.Element {
     //state for the board
     //change a tile to a player on movement
@@ -16,8 +18,15 @@ export function Board({size, coords, board}: {
         gridTemplate: grid,// rows, columns, second term is size
         gridGap: '0.3em',
       }}>
-        {board.map((s: string) => (
-            s === "a" ? <Tile></Tile> : <Player></Player>
-        ))}
+        {board.map((s: square) => {
+            switch(s.type){
+                case "a":
+                    return <Tile></Tile>
+                case "p":
+                    return <Player></Player>
+                case "b":
+                    return <Block></Block>
+            }
+        })}
     </div>;
 }
