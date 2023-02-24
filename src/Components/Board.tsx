@@ -10,9 +10,10 @@ export function Board({size, coords, board}: {
     //state for the board
     //change a tile to a player on movement
     //probably want to set up a good board at some point
+    const grid: string = "repeat(" + size[0] + ", 3rem) / repeat(" + size[1] + ", 3rem)"
     return <div style={{
         display: 'grid',
-        gridTemplate: 'repeat(3, 3rem) / repeat(3, 3rem)',
+        gridTemplate: grid,// rows, columns, second term is size
         gridGap: '0.3em',
       }}>
         {board.map((s: string) => (
