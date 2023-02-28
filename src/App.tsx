@@ -6,8 +6,8 @@ import { DPad } from './Components/DPad';
 import { square } from './Interfaces/Square';
 
 function App() {
-  const [pco, setpco] = useState<[number, number]>([0, 1]);
-  const [size, setsize] = useState<[number, number]>([3, 3]);
+  const [pco, setpco] = useState<[number, number]>([0, 0]);
+  const [size, setsize] = useState<[number, number]>([5, 5]);
   const base: square = {
     moveable: false,
     type: "a",
@@ -29,7 +29,7 @@ function App() {
     melt: false,
     gothrough: true
   }
-  const [b, setb] = useState<square[]>([base, base, base, plyr, base, base, base, blck, base]);
+  const [b, setb] = useState<square[]>([plyr, base, base, base, base, base, base, blck, base, base, base, base, base, base, base, base, base, base, base, base, base, base, base, base, base]);
   return (
     <div className="App">
       <span>{pco}</span>
